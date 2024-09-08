@@ -50,9 +50,9 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
       - name: Build AAB and APK with Gradle
-        run: run: ./gradlew --refresh-dependencies assembleRelease -Psigning.storeFile=/tmp/keystore.jks -Psigning.keyAlias=${{ secrets.KEY_ALIAS }} -Psigning.storePassword=${{ secrets.KEYSTORE_PASSWORD }} -Psigning.keyPassword=${{ secrets.KEY_PASSWORD }}
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+         run: ./gradlew --refresh-dependencies assembleRelease
+         env:
+           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
       - name: Upload APK artifact to workflow
         uses: actions/upload-artifact@v3
